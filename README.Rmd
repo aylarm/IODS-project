@@ -1,0 +1,3 @@
+Here is *some stuff* about this project
+
+A link to my course diary is here: https://*aylarm*.github.io/IODS-project/
