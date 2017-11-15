@@ -1,4 +1,4 @@
-# Insert chapter 2 title here
+# Regression and model validation
 
 *i statrted analyzed data set withwith the variables gender, age, attitude, deep, stra, surf and points by combining questions in the learning2014 data .*
 
