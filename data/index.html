@@ -156,7 +156,11 @@ $(document).ready(function () {
 <p><em>i statrted analyzed data set withwith the variables gender, age, attitude, deep, stra, surf and points by combining questions in the learning2014 data .</em></p>
 <p>i working countinue in this steps:</p>
 <p>Excluding observations Simple regression Graphical model validation</p>
-<hr />
+<p>chapter 3 :</p>
+<p>Logistic regression</p>
+<p>RStudio Exercise 3</p>
+<p>alc &lt;- read.csv(“alc.csv”,header=TRUE,sep=“,”) library(dplyr); library(ggplot2) alc %&gt;% group_by(sex, high_use) %&gt;% summarise(count = n(), mean_grade = mean(G3)) alc %&gt;% group_by(school, high_use) %&gt;% summarise(count = n(), mean_grade = mean(G3))</p>
+<p>alc %&gt;% group_by(age, high_use) %&gt;% summarise(count = n(), mean_grade = mean(G3)) alc %&gt;% group_by(reason, high_use) %&gt;% summarise(count = n(), mean_grade = mean(G3)) g1 &lt;- ggplot(alc, aes(x = high_use, y = G3, col = sex)) g1 + geom_boxplot() + ylab(“gender”) g2 &lt;- ggplot(alc, aes(x = high_use, y = absences, col = sex)) g2 + geom_boxplot() + ggtitle(“Student absences by alcohol consumption and m &lt;- glm(high_use ~ failures + absences + sex, data = alc, family =”binomial“) sex”) summary(m) coef(m) m &lt;- glm(high_use ~ failures + absences + sex, data = alc, family = “binomial”) OR &lt;- coef(m) %&gt;% exp CI &lt;- confint(m) %&gt;% exp cbind(OR, CI) m &lt;- glm(high_use ~ failures + absences + sex, data = alc, family = “binomial”) probabilities &lt;- predict(m, type = “response”) alc &lt;- mutate(alc, probability = probabilities) alc &lt;- mutate(alc, prediction = probability &gt; 0.5) select(alc, failures, absences, sex, high_use, probability, prediction) %&gt;% tail(10) table(high_use = alc<span class="math inline">\(high_use, prediction = alc\)</span>prediction) g &lt;- ggplot(alc, aes(x = probability, y = high_use, col = prediction)) g + geom_point() table(high_use = alc<span class="math inline">\(high_use, prediction = alc\)</span>prediction) %&gt;% prop.table %&gt;% addmargins loss_func &lt;- function(class, prob) { n_wrong &lt;- abs(class - prob) &gt; 0.26 mean(n_wrong) } loss_func(class = alc<span class="math inline">\(high_use, prob = alc\)</span>probability)</p>
 </div>
 
 

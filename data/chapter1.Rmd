@@ -1,0 +1,4 @@
+
+# About the project
+
+I think this course is including *coding classes* for the **beginner** data scientist.*https://github.com/aylarm/IODS-project*
