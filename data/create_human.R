@@ -35,3 +35,35 @@ df_all = df_all %>% select(-hdi_rank, -seats_parlim_female_note,
  print("Countries with missing data:")
  country_names[!complete.cases(df_all)]
  human <-df_all
+ human <- read.table("http://s3.amazonaws.com/assets.datacamp.com/production/course_2218/datasets/human1.txt", sep  =",", header = T)
+ names(human)
+ library(stringr)
+ str(human$GNI)
+ str_replace(human$GNI, pattern=",", replace ="") %>% as.numeric
+ keep <- c("Country", "Edu2.FM", "Labo.FM", "Life.Exp", "Edu.Exp", "GNI", "Mat.Mor", "Ado.Birth", "Parli.F")
+ human <- select(human, one_of(keep))
+ complete.cases(human)
+ data.frame(human[-1], comp = complete.cases(human))
+ human_ <- filter(human, complete.cases(human))
+ tail(human, 10)
+ last <- nrow(human) - 7
+ human_ <- human[1:last, ]
+ rownames(human) <- human$Country
+ library(dplyr)
+ human <- read.table("http://s3.amazonaws.com/assets.datacamp.com/production/course_2218/datasets/human1.txt", sep  =",", header = T)
+ human$GNI <- gsub(",", "", human$GNI) %>% as.numeric
+ keep <- c("Country", "Edu2.FM", "Labo.FM", "Life.Exp", "Edu.Exp", "GNI", "Mat.Mor", "Ado.Birth", "Parli.F")
+ human <- select(human, one_of(keep))
+ human <- filter(human, complete.cases(human))
+ rownames(human) <- human$Country
+ last <- nrow(human) - 7
+ human <- human[1:last, ]
+ human_ <- select(human, -Country)
+ library(GGally)
+ 
+ ggpairs(human_)
+ cor(human_) %>% corrplot
+ 
+ 
+ cor(human_) %>% corrplot
+ 

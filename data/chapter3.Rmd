@@ -2,9 +2,7 @@
 title: "chapter 3"
 author: "Aylar"
 date: "November 20, 2017"
-output: 
-  html_document: 
-    fig_width: 10
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
